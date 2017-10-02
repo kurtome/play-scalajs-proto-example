@@ -1,0 +1,11 @@
+@import play.filters.csrf.CSRF.Token
+
+@(token: Token)
+
+@main("Welcome to Play") {
+    <div
+        id="csrf-token-holder"
+        x-csrf-name="@token.name"
+        x-csrf-value="@token.value" />
+  <h1>Welcome to Play!</h1>
+}
