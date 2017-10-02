@@ -14,8 +14,9 @@ This is split into three sbt projects with separate dependencies.
  protobuf.
  
  
- Running the sample.
- 0) Download the project ```git clone https://github.com/KurToMe/play-scalajs-proto-example.git```
- 0) Go to project root directory ```cd play-scalajs-proto-example```
- 0) Run the server ```sbt run```
- 0) Open sample page in browser (see the API requests in the js console) <http://localhost:9000>
+ Running the sample:
+ 
+ 1) Download the project ```git clone https://github.com/KurToMe/play-scalajs-proto-example.git```
+ 2) Go to project root directory ```cd play-scalajs-proto-example```
+ 3) Run the server ```sbt run```
+ 4) Open sample page in browser (see the API requests in the js console) <http://localhost:9000>
