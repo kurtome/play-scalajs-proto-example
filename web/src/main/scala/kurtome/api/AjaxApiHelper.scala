@@ -27,6 +27,7 @@ private [api] object AjaxApiHelper {
     Ajax.post(
       url = baseUrl + action.route,
       data = Ajax.InputData.byteBuffer2ajax(ByteBuffer.wrap(action.serializeRequest(request))),
+      responseType = "arraybuffer",
       headers = Map(
         "Content-Type" -> "application/x-protobuf",
         "Csrf-Token" -> csrfToken
