@@ -8,6 +8,7 @@ import org.scalajs.dom.ext.Ajax
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.scalajs.js.{Dynamic, JSON}
+import scala.scalajs.js.typedarray._
 
 private [api] object AjaxApiHelper {
 
@@ -30,10 +31,11 @@ private [api] object AjaxApiHelper {
         "Content-Type" -> "application/x-protobuf",
         "Csrf-Token" -> csrfToken
       )
-    ) map { xhr => {
-      val body = xhr.response.asInstanceOf[String]
-      action.parseResponse(body.getBytes)
-    }}
+    ) map { xhr =>
+      val dataArray = xhr.response.asInstanceOf[Int8Array]
+      val array = int8Array2ByteArray(dataArray)
+      action.parseResponse(array)
+    }
   }
 
   def jsonRequest(route: String, json: Dynamic): Future[Dynamic] = {
